@@ -32,6 +32,7 @@ class DataLoader:
 
                     titanic = fetch_openml("titanic", version=1, as_frame=True)
                     df = titanic.data
+                    df.columns = df.columns.str.capitalize()  # 'sex' → 'Sex' にする
                     df["Survived"] = titanic.target
 
                     # 必要なカラムのみに絞る
